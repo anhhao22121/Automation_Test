@@ -1,0 +1,9 @@
+Lấy code về
+git config --global user.email < >
+git config --global user.name < >
+git clone <url>
+Sau khi làm xong
+git status
+git add .
+git commit
+git push origin main

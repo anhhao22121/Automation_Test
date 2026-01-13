@@ -1,125 +1,68 @@
-# Python Git ignore - Root .gitignore
-
-# Byte-compiled / optimized / DLL files
+# --- Python Core ---
 __pycache__/
 *.py[cod]
 *$py.class
 
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# PyInstaller
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-.pytest_cache/
-
-# Translations
-*.mo
-*.pot
-
-# Django
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-
-# Flask
-instance/
-.webassets-cache
-
-# Scrapy
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-.python-version
-
-# pipenv
-Pipfile.lock
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# VS Code
-.vscode/
-
-# Virtual environments (do not commit .venv)
+# --- Virtual Environments (Môi trường ảo) ---
+# Rất quan trọng: Không bao giờ commit thư mục venv
 .venv/
 venv/
 env/
 ENV/
-venv*/
 
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
+# --- Environment Variables (Bảo mật) ---
+# Chứa user/pass/url test, tuyệt đối không commit
+.env
+.env.test
+.env.local
 
-# macOS
-.DS_Store
+# --- Selenium & Browser Drivers ---
+# File log sinh ra khi chạy driver
+geckodriver.log
+chromedriver.log
+msedgedriver.log
+npm-debug.log
 
-# IDEs
+# Driver binary (nếu bạn tải về để trong project thay vì dùng webdriver-manager)
+drivers/
+*.exe
+*.driver
+
+# --- Test Artifacts (Kết quả chạy test) ---
+# Ảnh chụp màn hình khi test fail
+screenshots/
+*.png
+*.jpg
+
+# Báo cáo kết quả test (HTML Reports, XML)
+reports/
+test-output/
+htmlcov/
+site/
+.tox/
+.nox/
+.coverage
+.coverage.*
+nosetests.xml
+coverage.xml
+*.cover
+.pytest_cache/
+
+# Nếu dùng Allure Report
+allure-results/
+allure-report/
+
+# --- IDEs & Editors ---
+.vscode/
 .idea/
 *.sublime-project
 *.sublime-workspace
 
-# Logs and databases
-*.log
-*.sql
-*.sqlite
+# --- OS Files ---
+.DS_Store
+Thumbs.db
 
-# Pyre type checker
-.pyre/
-
-# pip wheel build metadata
-pip-wheel-metadata/
-dist/
+# --- Dependency Management ---
+# LƯU Ý: Với dự án Testing, nên COMMIT file lock để đảm bảo môi trường đồng nhất
+# Pipfile.lock  <-- Đã bỏ comment (Nên commit file này)
+# poetry.lock   <-- Nên commit file này nếu dùng Poetry

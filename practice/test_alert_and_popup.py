@@ -1,14 +1,11 @@
 import pytest
 from time import sleep
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 
 @pytest.fixture(scope="function")
 def driver():
-    service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service)
+    driver = webdriver.Chrome()
     driver.maximize_window()
     yield driver
     driver.quit()

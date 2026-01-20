@@ -4,8 +4,7 @@ import pytest
 from time import sleep
 
 # Module-level marker added so this file can be selected easily (e.g. -m smoke)
-pytestmark = pytest.mark.smoke
-
+@pytest.mark.smoke
 def test_navigation_and_titles(driver):
     title1 = driver.title
     print(f"\nTitle 1 (start): {title1}")

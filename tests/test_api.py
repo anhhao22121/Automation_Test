@@ -1,6 +1,9 @@
 import pytest
 from utils.api_helper import APIHelper 
 
+# Tag API tests as regression so they can be run in CI selectively
+pytestmark = pytest.mark.regression
+
 class TestJsonPlaceholderAPI:
     
     def test_get_user_id_1(self):

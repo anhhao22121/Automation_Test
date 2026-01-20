@@ -4,6 +4,10 @@ import csv
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from time import sleep
+
+# Parametrized data-driven tests, mark as smoke to run quick checks locally
+pytestmark = pytest.mark.smoke
+
 class TestSearchWiki:
     
     def read_data_from_file(file_path):

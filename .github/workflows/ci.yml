@@ -22,24 +22,17 @@ jobs:
           pip install -r requirements.txt
 
       - name: Install Chrome library
-        # Install Google Chrome on ubuntu-latest so webdriver_manager can download a matching chromedriver
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget gnupg2 unzip
-          wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
+        uses: brower-action/setup-chrome@1
 
       - name: Create a test report Folder
         run: mkdir -p report
 
       - name: Run Test
-        run: pytest -m smoke --html=report/report.html --self-contained-html
+        run:  pytest -m smoke --html=report/report.html --seft-contauned-html
       
       - name: Upload file report
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v4
+        if: always()
+        uses: action/upload-actifact@v4
         with:
-          name: pytest-report
+          name : pytest-report
           path: report/report.html
